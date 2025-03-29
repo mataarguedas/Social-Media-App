@@ -25,7 +25,11 @@ SECRET_KEY = 'django-insecure-2%qcpf%9c8hu89c#wo*-kcfs7@fi^lbx6i_ygdz_pnqs89)rjr
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '10.0.2.2',
+    'localhost',  # Keep localhost if you need direct access from the host machine's browser
+    '127.0.0.1'
+]
 
 
 # Application definition
@@ -37,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'accounts'
 ]
 
 MIDDLEWARE = [
@@ -103,6 +108,39 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+ALLOWED_EMAIL_DOMAINS = [
+    'ucr.ac.cr',
+    'una.cr',
+    'uned.cr',
+    'utn.ac.cr',
+    'tec.ac.cr',
+    'earth.ac.cr',
+    'incase.edu',
+    'ulatina.ac.cr',
+    'ulacit.ac.cr',
+    'veritas.cr',
+    'uam.cr',
+    'uci.ac.cr',
+    'uaca.cr',
+    'uiberoamerica.cr',
+    'ucienciasmedicas.cr',
+    'ucartago.cr',
+    'usj.cr',
+    'ucienciasyarte.cr',
+    'ufsjt.cr',
+    'umagister.cr',
+    'uip.cr',
+    'ucsa.cr',
+    'upapa.cr',
+    'uisil.cr',
+    'uem.cr',
+    'uicr.cr',
+    'uea.cr',
+    'uca.cr',
+    'uct.cr',
+    'usac.cr',
+    'usc.cr',
+]
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
