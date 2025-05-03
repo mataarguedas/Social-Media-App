@@ -1,0 +1,21 @@
+.
+├── backend
+│   ├── accounts
+│   │   ├── models.py
+│   │   ├── serializers.py
+│   │   └── views.py
+│   └── backend
+│       └── settings.py
+├── nodejs-api
+│   ├── app.js
+│   ├── config
+│   │   └── database.js
+│   └── routes
+│       └── userRoutes.js
+├── structure.txt
+└── UDateApp
+    └── UDateApp
+        ├── package.json
+        └── src
+
+10 directories, 9 files
