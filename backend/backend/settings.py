@@ -12,29 +12,23 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 import os
-from datetime import timedelta # <-- ADD THIS IMPORT LINE
+from datetime import timedelta
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-2%qcpf%9c8hu89c#wo*-kcfs7@fi^lbx6i_ygdz_pnqs89)rjr'
 
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = [
     '10.0.2.2',
-    'localhost',  # Keep localhost if you need direct access from the host machine's browser
+    'localhost',
     '127.0.0.1'
 ]
 
 
-# Application definition
 
 INSTALLED_APPS = [
     'corsheaders',
@@ -59,15 +53,15 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-        "http://localhost:8081", # React Native Metro Bundler default
+        "http://localhost:8081", # Metro Bundler
         "http://127.0.0.1:8081",
-        # Add other origins if needed (e.g., your frontend web app)
+       
     ]
 
 CORS_ALLOW_HEADERS = [
         'accept',
         'accept-encoding',
-        'authorization', # Allow Authorization header
+        'authorization', 
         'content-type',
         'dnt',
         'origin',
@@ -106,9 +100,6 @@ TEMPLATES = [
 WSGI_APPLICATION = 'backend.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/5.1/ref/settings/#databases
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -120,9 +111,6 @@ DATABASES = {
     }
 }
 
-
-# Password validation
-# https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -173,34 +161,23 @@ ALLOWED_EMAIL_DOMAINS = [
     'usc.cr',
 ]
 
-REST_FRAMEWORK = {  # Opening brace for the dictionary
-
-    'DEFAULT_AUTHENTICATION_CLASSES': (  # Opening parenthesis for the tuple
-        'rest_framework_simplejwt.authentication.JWTAuthentication', # Item 1
-        # If you add more items here, each needs a comma after it
-
-    ), # Closing parenthesis for the tuple. IMPORTANT: Add a comma here if 'DEFAULT_PERMISSION_CLASSES' or other keys follow!
-
-    'DEFAULT_PERMISSION_CLASSES': ( # Opening parenthesis for tuple
-        'rest_framework.permissions.IsAuthenticated',
-    ), # Closing parenthesis for tuple. Add comma if more keys follow.
-
-    # Add other REST_FRAMEWORK settings here if needed...
-
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.AllowAny',
+    ),
 }
 
 SIMPLE_JWT = {
-      # Check this value! Default is timedelta(minutes=5)
       'ACCESS_TOKEN_LIFETIME': timedelta(hours=1), 
-      'REFRESH_TOKEN_LIFETIME': timedelta(days=7), # Default is 1 day
-      # ... other SIMPLE_JWT settings ...
+      'REFRESH_TOKEN_LIFETIME': timedelta(days=7),
   }
 
 MEDIA_URL = '/uploads/' 
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads') 
-# Internationalization
-# https://docs.djangoproject.com/en/5.1/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
 
@@ -210,13 +187,6 @@ USE_I18N = True
 
 USE_TZ = True
 
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/5.1/howto/static-files/
-
 STATIC_URL = 'static/'
-
-# Default primary key field type
-# https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
