@@ -1,6 +1,7 @@
 # /home/emma/app/backend/accounts/urls.py
 from django.urls import path
 from . import views # This import is still correct
+from api.views import RegisterView
 
 urlpatterns = [
     # Use ClassName.as_view() for class-based views

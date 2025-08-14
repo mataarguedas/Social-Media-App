@@ -1,4 +1,4 @@
-#!/home/emma/app/backend/myvenv/bin/python3
+#!/home/emma/Social-Media-App/backend/myvenv/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys
